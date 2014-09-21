@@ -4,10 +4,10 @@ Getting and Cleaning Data
 This repo is created as part of the course project for **Getting and Cleaning Data** course at Coursera.
 
 It contains 4 files:
-1. **README.md** describing the repo and how the script works.
-2. **CodeBook.md** describing the variables used/transformed.
-3. **run_analysis.R** which is the R script to get/clean raw dataset and create a tidy dataset.
-4. **tidydata.txt** which contains the tidy data.
+1. **README.md** describing the repo and how the script works.  
+2. **CodeBook.md** describing the variables used/transformed.  
+3. **run_analysis.R** which is the R script to get/clean raw dataset and create a tidy dataset.  
+4. **tidydata.txt** which contains the tidy data.  
 
 ## Getting Data
 
