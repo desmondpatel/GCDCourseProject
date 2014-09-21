@@ -10,7 +10,7 @@
 # fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 # download.file(fileUrl, destfile = "UCI HAR Dataset.zip", method = "auto", mode="wb")
 
-# Set working directory to point to UCI HAR Dataset
+# Set working directory to point to UCI HAR Dataset folder
 # setwd("~/GCD/Course Project/UCI HAR Dataset")
 
 # Check if each row in training and test data files have 561 fields
@@ -23,7 +23,7 @@ trainact <- read.table("./train/y_train.txt")
 trainsub <- read.table("./train/subject_train.txt")
 traindat <- read.table("./train/X_train.txt")
 # Run the function nrow(trainact), nrow(trainsub), nrow(traindat)
-# They should return 7352 (rows) for all
+# They should all return 7352 (rows)
 # Run the function ncol(traindat)
 # It should return 561 (columns)
 
@@ -32,7 +32,7 @@ testact <- read.table("./test/y_test.txt")
 testsub <- read.table("./test/subject_test.txt")
 testdat <- read.table("./test/X_test.txt")
 # Run the function nrow(testact), nrow(testsub), nrow(testdat)
-# They should return 2947 (rows) for all
+# They should all return 2947 (rows)
 # Run the function ncol(testdat)
 # It should return 561 (columns)
 
@@ -64,11 +64,11 @@ features <- read.table("features.txt", stringsAsFactors=F)[,2]
 # class(features) will be character instead of factor by setting stringsAsFactors to false
 
 # Get logical vector (with TRUE/FALSE values).
-# Columns with words mean or standard deviation will have TRUE value
+# Columns with words, mean or standard deviation, will have TRUE value
 # and other columns will have FALSE value.
 reqfeatures <- grepl("mean|std", features)
 # Please note that this will have TRUE value for any column
-# containing words mean or std e.g. mean(), meanFreq, std().
+# containing words, mean or std e.g. mean(), meanFreq, std().
 
 # Two columns for subjectid & activityid must be present as columns 1 & 2
 allreqfeatures <- c(T, T, reqfeatures)
@@ -89,7 +89,7 @@ subdat <- fulldat[,allreqfeatures]
 activities <- read.table("activity_labels.txt")
 
 # This could be done in Step 3.
-# Then instead of second column name as activity will have to use V1.1
+# Then instead of second column name as activity, we will have to use V1.1
 # I set it here because V1.1 looks odd name.
 colnames(subdat)[2] <- "activity"
 
@@ -109,6 +109,9 @@ for(i in 1:length(features)){
     }
 }
 colnames(subdat) <- newcolnames
+# I did not prefix words, mean and std in all variable names after the 
+# second column with the letters "meanof" because they will become too long.
+# Moreover, they are already explained in the CodeBook.md file.
 
 
 # Step 5
@@ -128,7 +131,7 @@ tidydata <- dcast(meltdata, subjectid + activityname ~ variable, mean)
 # Run the functions nrow(tidydata) and ncol(tidydata)
 # They should return 180 (rows) and 81 (columns) respectively
 
-# Check if there is no NA in tidydat
+# Check if there is no NA in tidydata
 # all(!is.na(tidydata))
 
 # Write table to the file without row names

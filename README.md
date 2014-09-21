@@ -3,7 +3,7 @@ Getting and Cleaning Data
 
 This repo is created as part of the course project for **Getting and Cleaning Data** course at Coursera.
 
-It contains 4 files:
+It contains 4 files:  
 1. **README.md** describing the repo and how the script works.  
 2. **CodeBook.md** describing the variables used/transformed.  
 3. **run_analysis.R** which is the R script to get/clean raw dataset and create a tidy dataset.  
@@ -21,7 +21,7 @@ Click on the *Data Folder* link at the top of the website and download **UCI HAR
 After downloading the zip file, it can be unzipped to your working directory.
 
 ### Data Description
-The experiments were carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (*WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING*) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, the experimenters captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments were also video-recorded to label the data manually. The obtained dataset was then randomly partitioned into two sets, where 70% of the volunteers were selected for generating the training data and 30% the test data.
+The experiments were carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (*WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING*) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, the experimenters captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments were also video-recorded to label the data manually. The obtained dataset was then randomly partitioned into two sets, where 70% of the volunteers were selected for generating the training data and 30% the test data.  
 [Source: *Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012*]
 
 The full dataset consists of 10299 rows (instances/records) and 561 columns (attributes/fields).
@@ -29,12 +29,12 @@ The full dataset consists of 10299 rows (instances/records) and 561 columns (att
 For more details, please check out *README.txt* and *features_info.txt* files contained in the **UCI HAR Dataset.zip** file.
 
 ## Cleaning Data
-The following steps were conducted to clean the raw data into tidy data which can then be analysed:
-1. Merge the training and the test sets to create one data set.
-2. Extract only the measurements on the mean and standard deviation for each measurement.
-3. Use descriptive activity names to name the activities in the data set.
-4. Appropriately label the data set with descriptive variable names.
-5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
+The following steps were conducted to clean the raw data into tidy data which can then be analysed:  
+1. Merge the training and the test sets to create one data set.  
+2. Extract only the measurements on the mean and standard deviation for each measurement.  
+3. Use descriptive activity names to name the activities in the data set.  
+4. Appropriately label the data set with descriptive variable names.  
+5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.  
 
 Please refer to **run_analysis.R** file for the R script and **CodeBook.md** file for the full description of variables used/transformed.
 
@@ -43,13 +43,12 @@ In this step, the datasets were loaded into the data frames and then checked for
 
 Firstly, the zip file was unzipped into the current working directory (which is *Documents/GCD/Course Project* folder in my Windows PC). The whole dataset was in the folder *UCI HAR Dataset* in the current working directory. Hence the working directory was reset to *UCI HAR Dataset* folder. Kindly note that all the rest of the R commands (in the **run_analysis.R** file) were issued with this folder as the current working direcory.
 
-*UCI HAR Dataset* folder contains the following items:
-1. Four files *README.txt*, *activity_labels.txt*", *features.txt* and *features_info.txt*.
-2. Two folders *train* and *test*.
+*UCI HAR Dataset* folder contains the following items:  
+1. Four files *README.txt*, *activity_labels.txt*", *features.txt* and *features_info.txt*.  
+2. Two folders *train* and *test*.  
 
 ![Slide2.png by David Hood](Slide2.png)
-Source:
-https://class.coursera.org/getdata-007/forum/thread?thread_id=49
+[Source: *Hood, D. Retrived from https://class.coursera.org/getdata-007/forum/thread?thread_id=49 on 18/09/2014.*]
 
 The two files *subject_train.txt* and *subject_test.txt* were checked for missing values using R function *all* on R commands *count.fields* and *!is.na*.
 
